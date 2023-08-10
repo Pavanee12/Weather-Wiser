@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Weather App</title>
+
+    <link rel="stylesheet"  href="/css/sidebar.css" type="text/css" />
+    <link rel="stylesheet"  href="/css/data.css" type="text/css" />
+    <link rel="stylesheet"  href="/css/style2.css" type="text/css" />
+    <link rel="stylesheet"  href="/css/styles.css" type="text/css" />
+         
+     <!-- Font Awesome Icons -->
+     <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+   />
+   <!-- Google Fonts -->
+   <link
+     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+     rel="stylesheet"
+   />
+
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
+     
+    <style>
+
+  .container {
+    width: 90vw;
+    max-width: 62.5em;
+    position: relative;
+    margin: auto;
+  }
+  .add-flashcard-con {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.2em 1em;
+  }
+  button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .add-flashcard-con button {
+    font-size: 1em;
+    background-color: #587ef4;
+    color: #ffffff;
+    padding: 0.8em 1.2em;
+    font-weight: 500;
+    border-radius: 0.4em;
+  }
+  #card-con {
+    margin-top: 1em;
+  }
+  .question-container {
+    width: 90vw;
+    max-width: 34em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 3em 2em;
+    border-radius: 0.6em;
+    box-shadow: 0 1em 2em rgba(28, 0, 80, 0.1);
+  }
+  .question-container h2 {
+    font-size: 2.2em;
+    color: #363d55;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: 11fr 1fr;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+  .error-con {
+    align-self: center;
+  }
+  #error {
+    color: #ff5353;
+    font-weight: 400;
+  }
+  .fa-xmark {
+    font-size: 1.4em;
+    background-color: #587ef4;
+    height: 1.8em;
+    width: 1.8em;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-self: flex-end;
+  }
+  label {
+    color: #363d55;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+  }
+  textarea {
+    width: 100%;
+    padding: 0.7em 0.5em;
+    border: 1px solid #d0d0d0;
+    outline: none;
+    color: #414a67;
+    border-radius: 0.3em;
+    resize: none;
+  }
+  textarea:not(:last-child) {
+    margin-bottom: 1.2em;
+  }
+  textarea:focus {
+    border-color: #363d55;
+  }
+  #save-btn {
+    font-size: 1em;
+    background-color: #587ef4;
+    color: #ffffff;
+    padding: 0.6em 0;
+    border-radius: 0.3em;
+    font-weight: 600;
+  }
+  .card-list-container {
+    display: grid;
+    padding: 0.2em;
+    gap: 1.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .card {
+    background-color: #ffffff;
+    box-shadow: 0 0.4em 1.2em rgba(28, 0, 80, 0.08);
+    padding: 1.2em;
+    border-radius: 0.4em;
+  }
+  .question-div,.answer-div {
+    text-align: justify;
+  }
+  .question-div {
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #363d55;
+  }
+  .answer-div {
+    margin-top: 1em;
+    font-weight: 400;
+    color: #414a67;
+  }
+  .show-hide-btn {
+    display: block;
+    background-color: #587ef4;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.6em 0;
+    border-radius: 0.3em;
+  }
+  .buttons-con {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .edit,.delete {
+    background-color: transparent;
+    padding: 0.5em;
+    font-size: 1.2em;
+  }
+  .edit {
+    color: #587ef4;
+  }
+  .delete {
+    color: #ff5353;
+  }
+  .hide {
+    display: none;
+  }
+  @media screen and (max-width: 800px) {
+    .card-list-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8em;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    body {
+      font-size: 14px;
+    }
+    .card-list-container {
+      grid-template-columns: 1fr;
+      gap: 1.2em;
+    }
+  }
+    </style>
+    
+  </head>
+  <body class="dark">
+
+    <!-- sidebar starts -->
+    <%-include('../partials/sidebar') %>
+    <!-- sidebar ends -->
+
+    <%- body %>
+
+    <script src="/js/sidebar.js"></script> 
+
+    <!-- fav.js -->
+    <script>
+const container = document.querySelector(".container");
+const addQuestionCard = document.getElementById("add-question-card");
+const cardButton = document.getElementById("save-btn");
+const question = document.getElementById("question");
+const errorMessage = document.getElementById("error");
+const addQuestion = document.getElementById("add-flashcard");
+const closeBtn = document.getElementById("close-btn");
+let editBool = false;
+const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",];
+const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec",];
+const API_KEY = "561bfd9d873911a97dc832bdc611bfb7";
+const proxy = "https://cors-anywhere.herokuapp.com/";
+
+
+addQuestion.addEventListener("click", () => {
+  container.classList.add("hide");
+  question.value = "";
+  addQuestionCard.classList.remove("hide");
+});
+
+//Hide Create flashcard Card
+closeBtn.addEventListener("click",(hideQuestion=() => {
+    container.classList.remove("hide");
+    addQuestionCard.classList.add("hide");
+    if (editBool) 
+    {
+      editBool = false;
+      submitQuestion();
+    }
+  })
+);
+
+//Submit Question
+cardButton.addEventListener("click",(submitQuestion = () => 
+  {
+    editBool = false;
+    let tempQuestion = question.value.trim();
+    if (!tempQuestion) 
+    {
+      errorMessage.classList.remove("hide");
+    } 
+    else 
+    {
+     container.classList.remove("hide");
+     errorMessage.classList.add("hide");
+     viewlist();
+     question.value = "";
+    }
+  })
+);
+
+//Card Generate
+  function viewlist()
+  {
+  gettWeather(question.value);
+  }
+
+
+//Modify Elements
+const modifyElement = (element, edit = false) => {
+  let parentDiv = element.parentElement.parentElement;
+  let parentQuestion = parentDiv.querySelector(".question-div").innerText;
+  if (edit) 
+  {
+    question.value = parentQuestion;
+    disableButtons(true);
+  }
+  parentDiv.remove();
+};
+
+//Disable edit and delete buttons
+const disableButtons = (value) => {
+  let editButtons = document.getElementsByClassName("edit");
+  Array.from(editButtons).forEach((element) => {
+    element.disabled = value;
+  });
+};
+
+
+
+
+
+
+
+
+
+
+
+const gettWeather = async (city) => {
+  try 
+  {
+    const responses = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`,{ mode: "cors" });
+    const weatherData = await responses.json();
+    let { lon,lat } = weatherData.coord;
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely&units=metric&appid=${API_KEY}`)
+        .then((res) => res.json())
+        .then((data) => {
+        console.log(data);
+         //  addding to card
+         var listCard = document.getElementsByClassName("card-list-container");
+         var div = document.createElement("div");
+         div.classList.add("card");
+         div.innerHTML += `  
+              <p class="question-div">${city}</p>
+              <div class="temp" style="color:black">Temp - ${data.current.temp}&#176;C</div>
+              <div class="temp" style="color:black">Humidity-${data.current.humidity}&#176;C</div>
+              <img src="http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
+              <div class="W_desc" style="color:black">${data.current.weather[0].description}</div>
+          `
+         //Edit button
+          let buttonsCon = document.createElement("div");
+          buttonsCon.classList.add("buttons-con");     
+          var editButton = document.createElement("button");
+          editButton.setAttribute("class", "edit");
+          editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+          editButton.addEventListener("click", () => {
+          editBool = true;
+          modifyElement(editButton, true);
+          addQuestionCard.classList.remove("hide");
+        });
+      
+        buttonsCon.appendChild(editButton);
+        disableButtons(false);
+
+  //Delete Button
+  var deleteButton = document.createElement("button");
+  deleteButton.setAttribute("class", "delete");  
+  deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+  deleteButton.addEventListener("click", () => {
+    modifyElement(deleteButton);
+  });
+  buttonsCon.appendChild(deleteButton);
+  div.appendChild(buttonsCon);
+  listCard[0].appendChild(div);
+  hideQuestion();
+
+   });
+       
+  } 
+  catch(error) 
+  {
+    console.log(error);
+    alert("city not found");
+  }
+};
+
+
+    </script>
+     <!-- fav.js end -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

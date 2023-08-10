@@ -1,0 +1,115 @@
+<% layout('layouts/boilerplate')%>
+    <section class="home">
+
+        <div class="text" id="navbar"> <span id="nav-text">Forecast</span> </div>
+
+
+        <div class="container">
+            <div class="current-info">
+                <div class="place-container">
+                    <div class="time-zone" id="time-zone">Asia/Kolkata</div>
+                    
+                </div>
+            </div>
+    
+                <div class="temperature" >
+                    <div class="temperature-data">
+
+                    <span id="current-temp-icon"></span>
+                    <div id="current-temperature">100&#176 </div>
+                    <span id="temp-unit" style="margin-left:20px; font-size:4rem; margin-top: 5.8px;"> C</span>
+                    </div>
+                </div>
+
+                <div id="weather-desc" style="justify-content:center;display:flex;padding-right:5%;font-size:1.5rem;"></div>
+                <div id="update-time" style="justify-content:center;display:flex;padding-right:5%;padding-top:1%;font-weight: 200;font-size: small;"></div>
+                <div id="weather-details">
+                    <table>
+                        <tr>
+                          <td id="feels-like"></td>
+                          <td id="windSpeedInKm"></td>
+                          <td id="visibility"></td>
+                        </tr>
+                        <tr>
+                            <td id="pressure_d"></td>
+                            <td id="humidity_d"></td>
+                            <td id="dew_point_d"></td>
+                        </tr>
+                    </table>
+                </div>
+        </div>
+    
+       
+        <h3 style="color:white ;padding-left:8%; font-weight: lighter;">Daily</h3>
+        <div class="future-forecast" >
+               
+            <div class="weather-forecast" style="justify-content:center;display:flex;"id="weather-forecast">
+                
+                <div class="weather-forecast-item">
+                    <div class="day">Tue</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                    <div class="W_desc">cloudy</div>
+                </div>
+                <div class="weather-forecast-item">
+                    <div class="day">Wed</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+                <div class="weather-forecast-item">
+                    <div class="day">Thur</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+                <div class="weather-forecast-item">
+                    <div class="day">Fri</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+                <div class="weather-forecast-item">
+                    <div class="day">Sat</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color:white ;margin-top:2%; padding-left:2%;font-weight: lighter; ">Hourly</h3>
+        <div style="padding-left:5% ;">
+            
+        <div class="weather-forecast "   style="justify-content:center;display:flex;padding-right:5%;font-size:1rem;  color: white;padding-top:1% "id="weather-hour-forecast">
+                
+                <div class="weather-forecast-item">
+                    <div class="day">Wed</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+                <div class="weather-forecast-item">
+                    <div class="day">Thur</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+                <div class="weather-forecast-item">
+                    <div class="day">Fri</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+                <div class="weather-forecast-item">
+                    <div class="day">Sat</div>
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+        </div>
+    </div> 
+    
+             <!-- hourly forecast ends -->
+    </section>

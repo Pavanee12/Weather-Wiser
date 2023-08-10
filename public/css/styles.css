@@ -1,0 +1,39 @@
+#navbar{
+    display: table;
+    font-size: x-large;
+    width:100%;
+    margin-bottom:1% ;
+    background-color: black;
+    opacity: 30%;
+    padding-top:0.3%;
+    padding-bottom: 0.3%;
+    color: white;
+}
+
+#navbar-text{
+    
+    vertical-align: middle;
+}
+.temperature{
+    padding-right:100px;
+    font-size:5rem;
+    height: 112px;
+}
+.temperature-data{
+    display: flex;
+    justify-content: center;
+}
+
+#current-temp-icon{
+    height: 112px;
+    padding-right: 0;
+}
+#weather-details{
+    display: flex;
+    justify-content: center;
+    padding-right:5%;
+    padding-top:1%;
+    padding-bottom: 8%;
+    font-weight: 300;
+    font-size: 0.8em;
+}

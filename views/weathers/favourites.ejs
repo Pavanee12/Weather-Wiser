@@ -1,0 +1,34 @@
+<% layout('layouts/favBoiler')%>
+
+<div class="container">
+
+    <div class="add-flashcard-con">
+       <button id="add-flashcard">Add Favorite Places</button>
+    </div>
+
+    <!-- Display Card of Question And Answers Here -->
+    <div id="card-con">
+      <div class="card-list-container"></div>
+    </div>
+
+  </div>
+
+  <!-- Input form for users to fill question and answer -->
+  <div class="question-container hide" id="add-question-card">
+    <h2>Add Favourite location</h2>
+    <div class="wrapper">
+      <!-- Error message -->
+      <div class="error-con">
+        <span class="hide" id="error">Input fields cannot be empty!</span>
+      </div>
+      <!-- Close Button -->
+      <i class="fa-solid fa-xmark" id="close-btn"> </i>
+    </div>
+
+    <label for="question">city:</label>
+    <textarea class="input" id="question" placeholder="Type the city name here..." rows="1"></textarea>
+    <!-- <label for="answer">your thoughts:</label> -->
+    <!-- <textarea -->
+      <!-- class="input" id="answer" rows="3" placeholder="Type the answer here..."></textarea> -->
+    <button id="save-btn">add to favorites</button>
+  </div>
